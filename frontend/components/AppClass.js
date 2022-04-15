@@ -1,7 +1,18 @@
 import React from 'react'
 
 export default class AppClass extends React.Component {
+  
+  state = {
+    count: 0,
+    x: "",
+    y : "",
+    message: "",
+    email: ""
+  }
+
+
   render() {
+    console.log(this.state);
     const { className } = this.props
     return (
       <div id="wrapper" className={className}>
