@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import axios from 'axios';
 
 export default class AppClass extends React.Component {
   
@@ -139,12 +140,42 @@ export default class AppClass extends React.Component {
       ],
     })
   }
-  
+
+  inputChange = event => {
+    this.setState({
+      ...this.state,
+      email: event.target.value
+    })
+  }
+
+  onSubmit = (event) => {
+    event.preventDefault();
+    this.postRequest();
+    const clear = document.getElementById("email");
+    clear.value = ""
+  }
+
+  postRequest = () => {
+    const newRequest = {
+      x: this.state.x,
+      y: this.state.y,
+      steps: this.state.steps,
+      email: this.state.email
+    }
+    axios.post("http://localhost:9000/api/result", newRequest)
+    .then(res => {
+      console.log(res.data.message)
+      this.setState({
+        ...this.state,
+        message: res.data.message,
+      })
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }
 
   render() {
-    console.log("This is the matrix:", this.state.matrix);
-    console.log("This is the spot:", this.state.spot);
-
     const { className } = this.props
     return (
       <div id="wrapper" className={className}>
@@ -167,8 +198,8 @@ export default class AppClass extends React.Component {
           <button onClick={() => this.handleChangesRight()} id="right">RIGHT</button>
           <button onClick={() => this.handleChangesDown()} id="down">DOWN</button>
         </div>
-        <form>
-          <input id="email" type="email" placeholder="type email"></input>
+        <form onSubmit={this.onSubmit}>
+          <input id="email" type="email" placeholder="type email" onChange={this.inputChange}></input>
           <input id="submit" type="submit"></input>
         </form>
       </div>
