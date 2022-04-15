@@ -3,11 +3,16 @@ import React from 'react'
 export default class AppClass extends React.Component {
   
   state = {
-    count: 0,
+    turnCount: 0,
     x: "",
     y : "",
     message: "",
-    email: ""
+    email: "",
+    matrix: [
+      ["", "", ""],
+      ["", "B", ""],
+      ["", "", ""],
+    ]
   }
 
 
@@ -21,7 +26,10 @@ export default class AppClass extends React.Component {
           <h3 id="steps">You moved 0 times</h3>
         </div>
         <div id="grid">
-          <div className="square"></div>
+          {this.state.matrix.flatMap(flatItem => flatItem).map((mapItem, index) => {
+            return <div key={index} className="square">{mapItem}</div>
+          })}
+          {/* <div className="square"></div>
           <div className="square"></div>
           <div className="square"></div>
           <div className="square"></div>
@@ -29,7 +37,7 @@ export default class AppClass extends React.Component {
           <div className="square"></div>
           <div className="square"></div>
           <div className="square"></div>
-          <div className="square"></div>
+          <div className="square"></div> */}
         </div>
         <div className="info">
           <h3 id="message"></h3>
