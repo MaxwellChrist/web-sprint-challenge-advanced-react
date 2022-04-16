@@ -28,7 +28,7 @@ export default function AppFunctional(props) {
     event.preventDefault();
     postRequest();
     const clear = document.getElementById("email");
-    clear.value = ""
+    clear.value = "";
   }
 
   const postRequest = () => {
@@ -47,11 +47,9 @@ export default function AppFunctional(props) {
       })
     })
     .catch(err => {
-      console.log(err)
-      console.log(err)
       setState({
         ...state,
-        message: "Ouch: email is required",
+        message: err.response.data.message,
       })
     })
   }
@@ -166,6 +164,8 @@ export default function AppFunctional(props) {
   }
 
   const reset = () => {
+    const clear = document.getElementById("email");
+    clear.value = "";
     setState({
       spot: 4,
       steps: 0,
@@ -183,7 +183,7 @@ export default function AppFunctional(props) {
 
   return (
     <div id="wrapper" className={props.className}>
- <div className="info">
+      <div className="info">
           <h3 id="coordinates">Coordinates ({state.x}, {state.y})</h3>
           <h3 id="steps">You moved {state.steps} time{state.steps == 1 ? "" : "s"}</h3>
         </div>
@@ -194,6 +194,7 @@ export default function AppFunctional(props) {
         </div>
         <div className="info">
           <h3 id="message">{state.message}</h3>
+          <h3>{state.email}</h3>
         </div>
         <div id="keypad">
           <button onClick={() => handleChangesLeft()} id="left">LEFT</button>

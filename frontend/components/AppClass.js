@@ -126,6 +126,8 @@ export default class AppClass extends React.Component {
   }
 
   reset = () => {
+    const clear = document.getElementById("email");
+    clear.value = "";
     this.setState({
       spot: 4,
       steps: 0,
@@ -171,10 +173,9 @@ export default class AppClass extends React.Component {
       })
     })
     .catch(err => {
-      console.log(err)
       this.setState({
         ...this.state,
-        message: "Ouch: email is required",
+        message: err.response.data.message,
       })
     })
   }
