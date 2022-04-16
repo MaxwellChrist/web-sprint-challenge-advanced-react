@@ -194,7 +194,6 @@ export default function AppFunctional(props) {
         </div>
         <div className="info">
           <h3 id="message">{state.message}</h3>
-          <h3>{state.email}</h3>
         </div>
         <div id="keypad">
           <button onClick={() => handleChangesLeft()} id="left">LEFT</button>

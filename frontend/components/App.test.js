@@ -4,28 +4,47 @@
 // Test that typing on the input results in its value changing to the entered text.
 import React from 'react'
 import AppClass from './AppClass'
-import { render, userEvent, screen } from '@testing-library/react'
+import { render, screen, fireEvent, userEvent } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect';
 // Write your tests here
 test('AppClass renders correctly', async () => {
   render(<AppClass />);
 })
 
-test('AppClass renders heading text correctly', async () => {
+test('AppClass renders coordiates heading text correctly', async () => {
   render(<AppClass />);
-  // const heading = screen.getByText(/welcome/i);
-  // expect(heading).toBeInTheDocument()
-  // expect(heading).toBeVisible()
+
+  const coordinatesHeading = screen.getByText(/coordinates \(\d\, \d\)/i);
+  expect(coordinatesHeading).toBeInTheDocument();
+  expect(coordinatesHeading).toBeVisible();
 })
 
-test('AppClass renders buttons correctly', async () => {
-  render(<AppClass />)
+test('AppClass renders all buttons correctly', async () => {
+  render(<AppClass />);
+  const upButton = screen.getByText(/up/i);
+  const downButton = screen.getByText(/down/i);
+  const leftButton = screen.getByText(/left/i);
+  const rightButton = screen.getByText(/right/i);
+  const resetButton = screen.getByText(/reset/i);
+  expect(upButton).toBeInTheDocument();
+  expect(upButton).toBeVisible();
+  expect(downButton).toBeVisible();
+  expect(downButton).toBeInTheDocument();
+  expect(leftButton).toBeVisible();
+  expect(leftButton).toBeInTheDocument();
+  expect(rightButton).toBeVisible();
+  expect(rightButton).toBeInTheDocument();
+  expect(resetButton).toBeVisible();
+  expect(resetButton).toBeInTheDocument();
 })
 
 test('AppClass renders links correctly', async () => {
-  render(<AppClass />)
+  render(<AppClass />);
 })
 
 test('AppClass renders user input to email text when typing in input', async () => {
-  render(<AppClass />)
+  render(<AppClass />);
+  const placeholderText = screen.getByPlaceholderText(/type email/i);
+  expect(placeholderText).toBeVisible();
+  expect(placeholderText).toBeInTheDocument();
 })
