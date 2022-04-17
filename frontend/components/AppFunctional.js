@@ -40,7 +40,6 @@ export default function AppFunctional(props) {
     }
     axios.post("http://localhost:9000/api/result", newRequest)
     .then(res => {
-      console.log(res.data.message)
       setState({
         ...state,
         message: res.data.message,

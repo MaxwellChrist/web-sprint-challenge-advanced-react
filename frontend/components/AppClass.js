@@ -166,7 +166,6 @@ export default class AppClass extends React.Component {
     }
     axios.post("http://localhost:9000/api/result", newRequest)
     .then(res => {
-      console.log(res.data.message)
       this.setState({
         ...this.state,
         message: res.data.message,
