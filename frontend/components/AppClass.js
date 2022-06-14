@@ -39,8 +39,8 @@ export default class AppClass extends React.Component {
   }
 
   getCoordinatesLeft = (matrix) => {
-    matrix[this.state.spot] = "";
-    matrix[this.state.spot - 1] = "B"
+    matrix[this.state.spot] = [""];
+    matrix[this.state.spot - 1] = ["B"];
     return matrix
   }
 
@@ -66,8 +66,8 @@ export default class AppClass extends React.Component {
   }
 
   getCoordinatesRight = (matrix) => {
-    matrix[this.state.spot] = "";
-    matrix[this.state.spot + 1] = "B"
+    matrix[this.state.spot] = [""];
+    matrix[this.state.spot + 1] = ["B"];
     return matrix
   }
 
@@ -93,8 +93,8 @@ export default class AppClass extends React.Component {
   }
 
   getCoordinatesUp = (matrix) => {
-    matrix[this.state.spot] = "";
-    matrix[this.state.spot - 3] = "B"
+    matrix[this.state.spot] = [""];
+    matrix[this.state.spot - 3] = ["B"];
     return matrix
   }
 
@@ -120,8 +120,8 @@ export default class AppClass extends React.Component {
   }
 
   getCoordinatesDown = (matrix) => {
-    matrix[this.state.spot] = "";
-    matrix[this.state.spot + 3] = "B"
+    matrix[this.state.spot] = [""];
+    matrix[this.state.spot + 3] = ["B"];
     return matrix
   }
 

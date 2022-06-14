@@ -76,8 +76,8 @@ export default function AppFunctional(props) {
   }
 
   const getCoordinatesLeft = (matrix) => {
-    matrix[state.spot] = "";
-    matrix[state.spot - 1] = "B"
+    matrix[state.spot] = [""];
+    matrix[state.spot - 1] = ["B"];
     return matrix
   }
 
@@ -103,8 +103,8 @@ export default function AppFunctional(props) {
   }
 
   const getCoordinatesRight = (matrix) => {
-    matrix[state.spot] = "";
-    matrix[state.spot + 1] = "B"
+    matrix[state.spot] = [""];
+    matrix[state.spot + 1] = ["B"];
     return matrix
   }
 
@@ -130,8 +130,8 @@ export default function AppFunctional(props) {
   }
 
   const getCoordinatesUp = (matrix) => {
-    matrix[state.spot] = "";
-    matrix[state.spot - 3] = "B"
+    matrix[state.spot] = [""];
+    matrix[state.spot - 3] = ["B"];
     return matrix
   }
 
@@ -157,8 +157,8 @@ export default function AppFunctional(props) {
   }
 
   const getCoordinatesDown = (matrix) => {
-    matrix[state.spot] = "";
-    matrix[state.spot + 3] = "B"
+    matrix[state.spot] = [""];
+    matrix[state.spot + 3] = ["B"];
     return matrix
   }
 
